@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Blog</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Parallax sections */
+    .parallax {
+      height: 100vh;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Story text section */
+    .content {
+      padding: 4rem 10%;
+      background: #fff;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    .content p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.0rem;
+      color: #555;
+      text-align: left;
+    }
+
+    /* Gallery style */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 2rem;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Parallax Hero -->
+  <div class="parallax" style="background-image: url('imag/cabin1.jpg');">
+    <div>Christmas in South Lake Tahoe</div>
+  </div>
+
+  <!-- Story section -->
+  <section class="content">
+    <h2>Cabin In The Woods</h2>
+    <p>
+      If you have never experienced drinking hot chocolate in a chilly morning while looking out into the woods, I highly recommend it.
+      Now choosing the right cabin to stay in is extremely important, and I cannot stress that enough. This was certainly what happened with this trip.
+      Between me and my siblings, it took us several months (almost a year, I would say) to decide on a cabin to rent for Christmas. This was for 
+      multiple special occassions, a charcuterie of occassions if you will. Specifically, for our parents' retirement party and for my baby shower.<br><br>
+
+      The cabin was located keep in the woods in South Lake Tahoe.  
+    </p>
+    <div class="gallery">
+      <img src="imag/cabin0.jpg" alt="Lake Tahoe Cabin">
+      <img src="imag/cabin2.jpg" alt="Lake Tahoe Cabin">
+      <img src="imag/cabin4.jpg" alt="Lake Tahoe Cabin">
+    </div>
+  </section>
+
+  <!-- Another Parallax -->
+  <div class="parallax" style="background-image: url('imag/Cabos_Lands_End.jpg');">
+    <div>Marina and Land's End</div>
+  </div>
+
+  <!-- Another Story section -->
+  <section class="content">
+    <h2>Day 3: Exploring Land's End and the Marina Cabo San Lucas</h2>
+    <p>
+      We spent the first couple of days basking in the sun and delighting in the lavish spread of
+      the resort's all-inclusive gourmet offerings (which was absolutely fantastic). On the third
+      day, we set out for Land's End and Marina. <br><br>
+      
+      Land's End is one of Cabo San Lucas's most iconic 
+      attactions, and it is located at the southernmost tip of Baja California. Our van took us to 
+      the pier where the boat tour was located. Our tour guide, Carlos, drove us to some popular
+      spots, including Roca Pelicanos, Neptune's Finger, Playa de los Amantes, Playa del Divorcio and 
+      El Arco. He also showed us the sea lions resting on the rock in the Rookery, or La Lobera. I 
+      remember that experience vividly - the smell of sea lion was quite strong. The intensity of the 
+      smell may have been due to heaping amount of sea lions. <br><br>
+      
+      After our amazing boat tour, we stopped by the Marina Boardwalk. I had a terrible sunburn that
+      spread throughout my entire body, so my sister and I looked for a convenience store. Luckily I 
+      found a pharmacy, although everything was in Spanish. It didn't help that the pharmacist only
+      spoke Spanish. I found a pink bottle that smelled like calamine lotion and called it a day.
+    </p>
+    <div class="gallery">
+      <img src="imag/Cabos_El_Arco.jpg" alt="El_Arco">
+      <!-- <img src="imag/Cabos_Lands_End.jpg" alt="Cabos_Lands_End"> -->
+      <!---Video inside gallery-->
+      <video controls>
+        <source src="imag/Cabos_Marina.mp4" type="video/mp4">
+        Your browser does not support the video tag
+      </video>
+    </div>
+  </section>
+
+  <!-- Ending Parallax -->
+  <div class="parallax" style="background-image: url('imag/Cabos4.jpeg');">
+    <div>✨ Memories to Last a Lifetime ✨</div>
+  </div>
+
+  <footer>
+    <p>© 2021 My Travel Blog | Built with ❤️</p>
+  </footer>
+
+</body>
+</html>

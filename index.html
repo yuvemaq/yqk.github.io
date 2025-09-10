@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-GB" prefix="og: http://ogp.me/ns#" class="is-chrome is-desktop">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YQK Portfolio</title>
+  <link rel="icon" href="imag/ico.ico" type="image/x-icon">
+  <meta name="description" content="Yvonne Mae Krasnov" />
+  <style>
+    :root{
+      --bg-1: url('imag/Colorado.jpg');
+      /* --bg-2: url('imag/computer.jpg'); */
+      --bg-3: url('https://images.unsplash.com/photo-1544198365-3b50735043a4?q=80&w=1920&auto=format&fit=crop');
+      --bg-4: url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?q=80&w=1920&auto=format&fit=crop');
+
+      --brand: #6c5ce7;
+      --ink: #0f172a;
+      --muted: #475569;
+      --paper: #ffffff;
+      --ring: rgba(108,92,231,.35);
+    }
+
+    /* Base styles */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(1.2) blur(10px);
+      background: color-mix(in srgb, white 80%, transparent);
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .nav {
+      max-width: 1100px; margin: 0 auto; padding: .75rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { font-weight: 800; letter-spacing: .2px; }
+    .menu { display: flex; gap: 1rem; }
+    .menu a { padding: .4rem .7rem; border-radius: .7rem; }
+    .menu a:hover { background: #f1f5f9; text-decoration: none; }
+
+    /* Hero */
+    .hero {
+      min-height: 100svh; display: grid; place-items: center; text-align: center;
+      color: white; position: relative;
+      background: var(--bg-1) center/cover fixed no-repeat;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.55));
+    }
+    .hero-inner{ position: relative; z-index: 1; max-width: 900px; padding: 2rem; }
+    .tag { display:inline-block; padding:.35rem .6rem; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.2); border-radius:999px; font-size:.9rem; letter-spacing:.3px; }
+    h1 { font-size: clamp(2rem, 4.3vw, 3.6rem); margin: .8rem 0 .2rem; letter-spacing: .3px; }
+    .lead { font-size: clamp(1rem, 1.8vw, 1.25rem); color: #e2e8f0; margin-bottom: 1.3rem; }
+    .cta {
+      display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content:center;
+    }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; border-radius: .9rem; padding:.75rem 1rem; border:1px solid rgba(255,255,255,.35); color:white; }
+    .btn.primary { background: var(--brand); border-color: transparent; box-shadow: 0 10px 20px rgba(108,92,231,.25); }
+    .btn:hover { filter: brightness(1.05); text-decoration: none; }
+
+    /* Parallax sections */
+    .parallax {
+      min-height: 70svh; display: grid; place-items: center; text-align: center; color: white; position: relative;
+      background: center/cover fixed no-repeat;
+    }
+    .parallax::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)); }
+    .parallax > .content { position: relative; z-index:1; padding: 3rem 1rem; max-width: 900px; }
+
+    /* Content sections */
+    section.content-block { padding: 5rem 1rem; }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    h2 { font-size: clamp(1.5rem, 3.6vw, 2.4rem); margin: 0 0 .75rem; }
+    p { margin: 0 0 1rem; color: var(--muted); }
+
+    /* Cards */
+    .grid {
+      display: grid; gap: 1.2rem; grid-template-columns: repeat(12, 1fr);
+    }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .card {
+      background: white; border: 1px solid #e5e7eb; border-radius: 1.25rem; padding: 1.25rem;
+      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+    }
+    .card h3 { margin: .2rem 0 .5rem; font-size: 1.1rem; }
+
+    /* Skills pills */
+    .pills { display:flex; flex-wrap:wrap; gap:.5rem; }
+    .pill { padding:.4rem .65rem; border-radius:999px; background:#f1f5f9; border:1px solid #e2e8f0; font-size:.9rem; }
+
+    /* Footer */
+    footer { padding: 2.5rem 1rem; border-top: 1px solid #e5e7eb; color: #64748b; text-align:center; }
+
+    /* Forms */
+    form { display:grid; gap: .9rem; }
+    input, textarea { width:100%; padding:.8rem 1rem; border-radius:.9rem; border:1px solid #e2e8f0; font: inherit; }
+    input:focus, textarea:focus { outline: 2px solid var(--ring); border-color: var(--brand); }
+
+    /* Responsive */
+    @media (max-width: 1024px){ .col-4{grid-column: span 6;} .col-6{grid-column: span 12;} }
+    @media (max-width: 640px){ .grid{grid-template-columns: 1fr;} .col-4,.col-6{grid-column: auto;} }
+
+    /* Accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      html { scroll-behavior: auto; }
+      .btn, .card { transition: none !important; }
+    }
+
+    /* Mobile fallback: fixed backgrounds can be janky on some devices */
+    @media (max-width: 767px){
+      .hero, .parallax { background-attachment: scroll; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">Yvonne Krasnov</div>
+      <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#blog">Blog</a>
+        <!-- <a href="#projects">Projects</a> -->
+        <a href="#skills">Skills</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Parallax -->
+  <section class="hero" role="banner">
+    <div class="hero-inner">
+      <span class="tag">Business Analyst · Developer · Artist · Mom</span>
+      <h1>Hello, I'm <span style="white-space:nowrap;">Yvonne Krasnov</span></h1>
+      <p class="lead">Cleveland-based business analyst and life-long islander. I am passionate about advancing project outcomes, champion innovation, and bridging people with technology.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects" aria-label="See my projects">See Projects</a>
+        <a class="btn" href="#contact" aria-label="Contact me">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="content-block">
+    <div class="wrap grid">
+      <div class="col-6">
+        <h2>About Me</h2>
+        <p>I'm a business analyst focused on helping stakeholders make smarter decisions with data. I enjoy brainstorming with tech-driven teams and bringing people together to accomplish goals.</p>
+        <p>Apart from the spreadsheets and computer screens, I am living life through creativity, music, family, and adventure.</p>
+      </div>
+      <div class="col-6">
+        <div class="card" aria-label="Quick facts">
+          <h3>Quick Facts</h3>
+          <ul>
+            <li>📍 Based in Cleveland, Ohio</li>
+            <li>🎵 Musically versed and love to sing and compose</li>
+            <li>💙 Driven by love for helping others thrive</li>
+            <li>🎯 Interests: Data analysis, data engineering, UI engineering, data visualization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Panel 2 -->
+  <!-- <section class="parallax" style="background-image: var(--bg-2);">
+    <div class="content">
+      <h2>Personal Projects</h2>
+      <p class="lead">I'm always thinking of ways to make others' lives easier. As a result, many of my personal projects are created with practical applications in mind. Of course, my creative side allows me to balance practicality with imaginative exploration.</p>
+    </div>
+  </section> -->
+
+  <!-- Projects -->
+  <!-- <section id="projects" class="content-block" aria-labelledby="projects-title">
+    <div class="wrap">
+      <h2 id="projects-title">Selected Projects</h2>
+      <div class="grid">
+        <article class="card col-4">
+          <h3>Project One</h3>
+          <p>NANI</p>
+          <a href="#">View case study →</a>
+        </article>
+        <article class="card col-4">
+          <h3>Project Two</h3>
+          <p>Project two.</p>
+          <a href="#">View project →</a>
+        </article>
+        <article class="card col-4">
+          <h3>Project Three</h3>
+          <p>Project three.</p>
+          <a href="#">View repo →</a>
+        </article>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Parallax Panel 3 -->
+  <section class="parallax" style="background-image: url(imag/japanesegarden.jpg);">
+    <div class="content">
+      <h2>Personal Blog</h2>
+      <p class="lead">Sharing my professional journey alongisde the moments that shape my life.</p>
+    </div>
+  </section> -->
+
+  <!-- Blog -->
+  <section id="blog" class="content-block" aria-labelledby="blog-title">
+    <div class="wrap">
+      <h2 id="blog-title">Adventures</h2>
+      <div class="grid">
+        <article class="card col-4">
+          <h3>Cabo San Lucas 2021</h3>
+          <p>Christmas getaway in Cabo San Lucas.</p>
+          <a href="cabos_blog.html">Read story →</a>
+        </article>
+        <article class="card col-4">
+          <h3>Las Vegas 2022</h3>
+          <p>Bridal Shower in Las Vegas, Nevada</p>
+          <a href="las_vegas_blog.html">Read story →</a>
+        </article>
+        <article class="card col-4">
+          <h3>Cabin Christmas 2023</h3>
+          <p>Cozy cabin vibes Christmas in South Lake Tahoe</p>
+          <a href="cabin_christmas.html">Read story →</a>
+        </article>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Parallax Panel 4 -->
+  <section class="parallax" style="background-image: url(imag/meditate.jpg);">
+    <div class="content">
+      <h2>Quality Over Quantity</h2>
+      <p class="lead">I aim to enhance my knowledge and skills into any new tool or project.</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="content-block">
+    <div class="wrap grid">
+      <div class="col-6">
+        <h2>Skills</h2>
+        <p>My toolbelt spans SQL expertise, data modeling, and analytics, completed by a strong business analysis mindset.</p>
+        <div class="pills" aria-label="Skill list">
+          <span class="pill">Advanced SQL</span>
+          <span class="pill">Query optimization</span>
+          <span class="pill">Data modeling</span>
+          <span class="pill">ETL pipelines</span>
+          <span class="pill">Power Automation</span>
+          <span class="pill">Python</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Snowflake</span>
+          <span class="pill">Oracle SQL</span>
+          <span class="pill">Microsoft SQL Server</span>
+          <span class="pill">Teradata</span>
+          <span class="pill">HTML</span>
+          <span class="pill">CSS</span>
+          <span class="pill">Tableau</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">Git</span>
+          <span class="pill">Jupyter</span>
+          <span class="pill">CI/CD basics</span>
+          <span class="pill">Docker</span>
+        </div>
+      </div>
+      <!-- <div class="col-6">
+        <div class="card">
+          <h3>Services</h3>
+          <ul>
+            <li>UX engineering & prototyping</li>
+            <li>Design systems & component libraries</li>
+            <li>Performance + accessibility audits</li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+  </section>
+
+  <!-- Parallax Panel 4 -->
+  <section class="parallax" style="background-image: url(imag/computer.jpg);">
+    <div class="content">
+      <h2>Want to talk? Send me a message</h2>
+      <p class="lead">Feel free to contact me to learn more about my projects or discuss ideas you want to bring to life.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="content-block">
+    <div class="wrap grid">
+      <div class="col-6">
+        <h2>Contact</h2>
+        <p>If you want to explore my work or collaborate on something new, let’s connect. Drop a line below or email <a href="mailto:yuvemaq23@gmail.com">yuvemaq23@gmail.com</a>.</p>
+        <form onsubmit="event.preventDefault(); alert('Thanks! This demo form does not submit.');">
+          <label>
+            <span class="sr-only">Name</span>
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            <span class="sr-only">Email</span>
+            <input type="email" name="email" placeholder="Your email" required />
+          </label>
+          <label>
+            <span class="sr-only">Message</span>
+            <textarea name="message" rows="5" placeholder="Tell me about your project" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Send Message</button>
+        </form>
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <h3>Elsewhere</h3>
+          <ul>
+            <li><a href="https://github.com/yuvemaq">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/yvonnemaek/">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Yvonne Krasnov · Built with HTML & CSS
+  </footer>
+
+  <script>
+    // Tiny helper to keep the footer year current (no framework needed)
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
