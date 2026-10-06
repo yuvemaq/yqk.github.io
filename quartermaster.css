@@ -1,0 +1,1324 @@
+/* =========================================================
+   QUARTERMASTER PAGE
+   Page-specific styles only.
+========================================================= */
+
+
+/* =========================================================
+   QUARTERMASTER VARIABLES
+========================================================= */
+
+.quartermaster-page {
+
+    --qm-bg-dark: #101112;
+    --qm-bg-darker: #0a0b0c;
+
+    --qm-panel: #181a1c;
+    --qm-panel-light: #202326;
+
+    --qm-text: #e8e5dc;
+    --qm-text-muted: #a9a59b;
+
+    --qm-accent: #c69a52;
+    --qm-accent-light: #e0bb77;
+    --qm-accent-dark: #76582e;
+
+    --qm-border: rgba(198, 154, 82, 0.28);
+
+    --qm-display-font: "Cinzel", serif;
+    --qm-body-font: "Inter", sans-serif;
+
+}
+
+/* =========================================================
+   PAGE BASE
+========================================================= */
+
+.quartermaster-page {
+    background: var(--qm-bg-dark);
+    color: var(--qm-text);
+}
+
+.quartermaster {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* =========================================================
+   SHARED CONTAINER
+========================================================= */
+
+.quartermaster-container {
+
+    width: min(
+        calc(100% - 40px),
+        1180px
+    );
+
+    margin: 0 auto;
+
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.quartermaster-hero {
+
+    position: relative;
+
+    min-height: 570px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(198, 154, 82, 0.22),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            90deg,
+            #08090a 0%,
+            rgba(8, 9, 10, 0.94) 35%,
+            rgba(8, 9, 10, 0.72) 65%,
+            rgba(8, 9, 10, 0.55) 100%
+        );
+
+}
+
+/* Subtle grid texture */
+
+.quartermaster-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    opacity: 0.25;
+
+}
+
+/* Bottom fade */
+
+.quartermaster-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 180px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--qm-bg-dark)
+        );
+
+    pointer-events: none;
+
+}
+
+/* Hero overlay */
+
+.quartermaster-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(224, 187, 119, 0.08),
+            transparent 30%
+        );
+
+    pointer-events: none;
+
+}
+
+/* Hero content */
+
+.quartermaster-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding-top: 110px;
+    padding-bottom: 95px;
+
+}
+
+
+/* Breadcrumb */
+
+.quartermaster-breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    color: var(--qm-accent);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.68rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+}
+
+.quartermaster-breadcrumb .breadcrumb-divider {
+
+    color: var(--qm-text-muted);
+
+}
+
+/* Hero title */
+
+.quartermaster-hero h1 {
+
+    max-width: 900px;
+
+    margin: 0;
+
+    color: var(--qm-text);
+
+    font-family: var(--qm-display-font);
+
+    font-size: clamp(
+        3rem,
+        8vw,
+        6.5rem
+    );
+
+    font-weight: 700;
+
+    line-height: 0.94;
+
+    letter-spacing: 0.025em;
+
+    text-shadow:
+
+        0 3px 25px rgba(0,0,0,0.75);
+
+}
+
+
+/* Hero subtitle */
+
+.quartermaster-subtitle {
+
+    margin-top: 24px;
+
+    color: var(--qm-accent-light);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 1.1rem;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+/* Hero description */
+
+.quartermaster-introduction {
+
+    max-width: 680px;
+
+    margin-top: 18px;
+
+    color: var(--qm-text-muted);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.98rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* Hero tags */
+
+.quartermaster-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 28px;
+
+}
+
+.quartermaster-tags span {
+
+    display: inline-block;
+
+    padding: 6px 12px;
+
+    border: 1px solid var(--qm-border);
+
+    background: rgba(
+        198,
+        154,
+        82,
+        0.07
+    );
+
+    color: var(--qm-accent-light);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.65rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.quartermaster-section {
+
+    width: 100%;
+
+    padding: 100px 0;
+
+    background: var(--qm-bg-dark);
+
+}
+
+.quartermaster-section-alt {
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.025),
+            rgba(255,255,255,0)
+        ),
+
+        #111314;
+
+    border-top: 1px solid rgba(255,255,255,0.04);
+
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.quartermaster-section-heading {
+
+    margin-bottom: 45px;
+
+}
+
+.quartermaster-section-kicker {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--qm-accent);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.68rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+
+}
+
+.quartermaster-section-heading h2 {
+
+    margin: 0;
+
+    color: var(--qm-text);
+
+    font-family: var(--qm-display-font);
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.2rem
+    );
+
+    font-weight: 600;
+
+    line-height: 1.1;
+
+}
+
+.quartermaster-section-heading p {
+
+    max-width: 680px;
+
+    margin-top: 12px;
+
+    color: var(--qm-text-muted);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.95rem;
+
+}
+
+
+/* =========================================================
+   CHARACTER TRAITS
+========================================================= */
+
+.quartermaster-trait-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    border-top: 1px solid var(--qm-border);
+
+    border-left: 1px solid var(--qm-border);
+
+}
+
+.quartermaster-trait-card {
+
+    min-height: 135px;
+
+    padding: 26px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background: var(--qm-panel);
+
+    border-right: 1px solid var(--qm-border);
+
+    border-bottom: 1px solid var(--qm-border);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+.quartermaster-trait-card:hover {
+
+    background: var(--qm-panel-light);
+
+    transform: translateY(-2px);
+
+}
+
+.quartermaster-trait-label {
+
+    color: var(--qm-accent);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.63rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+}
+
+.quartermaster-trait-card strong {
+
+    margin-top: 6px;
+
+    color: var(--qm-text);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 1.12rem;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================================
+   BUILD FEATURES
+========================================================= */
+
+.quartermaster-feature-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+}
+
+.quartermaster-feature-card {
+
+    display: grid;
+
+    grid-template-columns: 55px 1fr;
+
+    gap: 20px;
+
+    padding: 30px;
+
+    background: var(--qm-panel);
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+.quartermaster-feature-card:hover {
+
+    transform: translateY(-3px);
+
+    background: var(--qm-panel-light);
+
+    border-color: var(--qm-border);
+
+}
+
+.quartermaster-feature-number {
+
+    color: var(--qm-accent);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 1.4rem;
+
+    line-height: 1;
+
+}
+
+.quartermaster-feature-card h3 {
+
+    margin: 0 0 10px;
+
+    color: var(--qm-text);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 1.25rem;
+
+    font-weight: 600;
+
+}
+
+.quartermaster-feature-card p {
+
+    margin: 0;
+
+    color: var(--qm-text-muted);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.88rem;
+
+    line-height: 1.75;
+
+}
+
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.quartermaster-table {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid var(--qm-border);
+
+    background: var(--qm-panel);
+
+}
+
+.quartermaster-table-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        1fr
+        2fr;
+
+    border-bottom: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+}
+
+.quartermaster-table-row:last-child {
+
+    border-bottom: none;
+
+}
+
+.quartermaster-table-row > div {
+
+    min-width: 0;
+
+    padding: 18px 20px;
+
+    color: var(--qm-text-muted);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.86rem;
+
+}
+
+.quartermaster-table-header {
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(198,154,82,0.11),
+            rgba(198,154,82,0.04)
+        );
+
+}
+
+.quartermaster-table-header > div {
+
+    color: var(--qm-accent-light);
+
+    font-size: 0.63rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+}
+
+.quartermaster-item-name {
+
+    color: var(--qm-text) !important;
+
+    font-family: var(--qm-display-font) !important;
+
+    font-size: 0.95rem !important;
+
+}
+
+.quartermaster-level-number {
+
+    color: var(--qm-accent) !important;
+
+    font-family: var(--qm-display-font) !important;
+
+    font-size: 1rem !important;
+
+}
+
+
+/* =========================================================
+   COMBAT TACTICS
+========================================================= */
+
+.quartermaster-tactic-list {
+
+    border-top: 1px solid var(--qm-border);
+
+}
+
+.quartermaster-tactic-list details {
+
+    border-bottom: 1px solid var(--qm-border);
+
+}
+
+.quartermaster-tactic-list summary {
+
+    display: grid;
+
+    grid-template-columns:
+        70px 1fr;
+
+    align-items: center;
+
+    padding: 25px 10px;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    color: var(--qm-text);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 1.15rem;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+.quartermaster-tactic-list summary::-webkit-details-marker {
+
+    display: none;
+
+}
+
+.quartermaster-tactic-list summary:hover {
+
+    color: var(--qm-accent-light);
+
+}
+
+.quartermaster-tactic-list summary span {
+
+    color: var(--qm-accent);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 0.8rem;
+
+    letter-spacing: 0.1em;
+
+}
+
+.quartermaster-details-content {
+
+    max-width: 800px;
+
+    padding:
+        0 20px
+        30px 80px;
+
+}
+
+.quartermaster-details-content p {
+
+    margin: 0;
+
+    color: var(--qm-text-muted);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.9rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   FIELD JOURNAL
+========================================================= */
+
+.quartermaster-journal-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+}
+
+.quartermaster-journal-card {
+
+    position: relative;
+
+    min-height: 310px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    background: var(--qm-panel);
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.06
+    );
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+.quartermaster-journal-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--qm-accent);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform 0.25s ease;
+
+}
+
+.quartermaster-journal-card:hover {
+
+    transform: translateY(-4px);
+
+    background: var(--qm-panel-light);
+
+    border-color: var(--qm-border);
+
+}
+
+.quartermaster-journal-card:hover::before {
+
+    transform: scaleX(1);
+
+}
+
+.quartermaster-journal-date {
+
+    color: var(--qm-accent);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.63rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.15em;
+
+}
+
+.quartermaster-journal-card h3 {
+
+    margin-top: 15px;
+
+    color: var(--qm-text);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 1.35rem;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+}
+
+.quartermaster-journal-card p {
+
+    margin-top: 15px;
+
+    color: var(--qm-text-muted);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.88rem;
+
+    line-height: 1.75;
+
+}
+
+.quartermaster-read-more {
+
+    margin-top: auto;
+
+    padding-top: 25px;
+
+    color: var(--qm-accent-light);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.68rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.1em;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    transition: color 0.2s ease;
+
+}
+
+.quartermaster-read-more:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.quartermaster-footer {
+
+    padding: 75px 20px;
+
+    text-align: center;
+
+    background: var(--qm-bg-darker);
+
+    border-top: 1px solid var(--qm-border);
+
+}
+
+.quartermaster-footer-mark {
+
+    margin-bottom: 15px;
+
+    color: var(--qm-accent);
+
+    font-size: 2rem;
+
+}
+
+.quartermaster-footer p {
+
+    margin: 0;
+
+    color: var(--qm-text);
+
+    font-family: var(--qm-display-font);
+
+    font-size: 0.78rem;
+
+    letter-spacing: 0.15em;
+
+}
+
+.quartermaster-footer span {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--qm-text-muted);
+
+    font-family: var(--qm-body-font);
+
+    font-size: 0.68rem;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .quartermaster-hero {
+
+        min-height: 520px;
+
+    }
+
+    .quartermaster-hero-content {
+
+        padding-top: 90px;
+
+        padding-bottom: 75px;
+
+    }
+
+
+    .quartermaster-trait-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .quartermaster-feature-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .quartermaster-journal-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .quartermaster-container {
+
+        width: min(
+            calc(100% - 30px),
+            1180px
+        );
+
+    }
+
+
+    .quartermaster-section {
+
+        padding: 70px 0;
+
+    }
+
+
+    .quartermaster-hero {
+
+        min-height: 500px;
+
+    }
+
+
+    .quartermaster-hero-content {
+
+        padding-top: 75px;
+
+        padding-bottom: 65px;
+
+    }
+
+
+    .quartermaster-hero h1 {
+
+        font-size: clamp(
+            2.8rem,
+            14vw,
+            4.5rem
+        );
+
+    }
+
+
+    .quartermaster-subtitle {
+
+        font-size: 0.85rem;
+
+        line-height: 1.6;
+
+    }
+
+
+    .quartermaster-introduction {
+
+        font-size: 0.88rem;
+
+    }
+
+
+    .quartermaster-section-heading {
+
+        margin-bottom: 32px;
+
+    }
+
+
+    .quartermaster-section-heading h2 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .quartermaster-trait-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .quartermaster-feature-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 25px;
+
+    }
+
+
+    .quartermaster-table {
+
+        overflow-x: auto;
+
+    }
+
+
+    .quartermaster-table-row {
+
+        min-width: 600px;
+
+        grid-template-columns:
+            1.2fr
+            1fr
+            2fr;
+
+    }
+
+
+    .quartermaster-tactic-list summary {
+
+        grid-template-columns:
+            50px 1fr;
+
+        padding: 22px 5px;
+
+        font-size: 1rem;
+
+    }
+
+
+    .quartermaster-details-content {
+
+        padding:
+            0 10px
+            25px 55px;
+
+    }
+
+
+    .quartermaster-journal-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .quartermaster-journal-card {
+
+        min-height: 270px;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .quartermaster-container {
+
+        width: calc(100% - 24px);
+
+    }
+
+
+    .quartermaster-hero {
+
+        min-height: 470px;
+
+    }
+
+
+    .quartermaster-hero-content {
+
+        padding-top: 60px;
+
+        padding-bottom: 55px;
+
+    }
+
+
+    .quartermaster-hero h1 {
+
+        font-size: 2.7rem;
+
+    }
+
+
+    .quartermaster-tags {
+
+        gap: 6px;
+
+    }
+
+
+    .quartermaster-tags span {
+
+        padding: 5px 9px;
+
+        font-size: 0.58rem;
+
+    }
+
+
+    .quartermaster-section {
+
+        padding: 55px 0;
+
+    }
+
+
+    .quartermaster-section-heading h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+    .quartermaster-trait-card {
+
+        min-height: 115px;
+
+        padding: 22px;
+
+    }
+
+
+    .quartermaster-footer {
+
+        padding: 60px 15px;
+
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.quartermaster-page
+a:focus-visible,
+.quartermaster-page
+summary:focus-visible,
+.quartermaster-page
+button:focus-visible {
+
+    outline: 2px solid var(--qm-accent-light);
+
+    outline-offset: 4px;
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .quartermaster-page *,
+    .quartermaster-page *::before,
+    .quartermaster-page *::after {
+
+        scroll-behavior: auto !important;
+
+        transition: none !important;
+
+        animation: none !important;
+
+    }
+
+}
