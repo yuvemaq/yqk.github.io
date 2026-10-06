@@ -16,13 +16,19 @@
       --brand: #6c5ce7;
       --ink: #0f172a;
       --muted: #475569;
+      --dark: #151515;
+      --accent: #981aff;
       --paper: #ffffff;
       --ring: rgba(108,92,231,.35);
+      --transition-fast: 0.2s ease;
+      --transition-medium: 0.4s ease;
+      --transition-slow: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     /* Base styles */
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; }
     body {
       margin: 0;
       font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
@@ -30,8 +36,11 @@
       background: var(--paper);
     }
 
-    a { color: var(--brand); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { 
+      color: var(--brand); 
+      text-decoration: none; }
+    a:hover { 
+      text-decoration: underline; }
 
     /* Header */
     header {
@@ -41,37 +50,92 @@
       border-bottom: 1px solid #e2e8f0;
     }
     .nav {
-      max-width: 1100px; margin: 0 auto; padding: .75rem 1rem;
-      display: flex; align-items: center; justify-content: space-between;
+      max-width: 1100px; 
+      margin: 0 auto; 
+      padding: .75rem 1rem;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
     }
-    .brand { font-weight: 800; letter-spacing: .2px; }
-    .menu { display: flex; gap: 1rem; }
-    .menu a { padding: .4rem .7rem; border-radius: .7rem; }
-    .menu a:hover { background: #f1f5f9; text-decoration: none; }
+    .brand { 
+      font-weight: 800; 
+      letter-spacing: .2px; }
+    .menu { 
+      display: flex; 
+      gap: 1rem; }
+    .menu a { 
+      padding: .4rem .7rem; 
+      border-radius: .7rem; }
+    .menu a:hover { 
+      background: #f1f5f9; 
+      text-decoration: none; }
 
     /* Hero */
     .hero {
-      min-height: 100svh; display: grid; place-items: center; text-align: center;
-      color: white; position: relative;
+      min-height: 100svh; 
+      display: grid; 
+      place-items: center; 
+      text-align: center;
+      color: white; 
+      position: relative;
       background: var(--bg-1) center/cover fixed no-repeat;
     }
     .hero::after{
-      content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.55));
+      content:""; 
+      position:absolute; 
+      inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.55));
     }
-    .hero-inner{ position: relative; z-index: 1; max-width: 900px; padding: 2rem; }
-    .tag { display:inline-block; padding:.35rem .6rem; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.2); border-radius:999px; font-size:.9rem; letter-spacing:.3px; }
-    h1 { font-size: clamp(2rem, 4.3vw, 3.6rem); margin: .8rem 0 .2rem; letter-spacing: .3px; }
-    .lead { font-size: clamp(1rem, 1.8vw, 1.25rem); color: #e2e8f0; margin-bottom: 1.3rem; }
+    .hero-inner{ 
+      position: relative; 
+      z-index: 1; 
+      max-width: 900px; 
+      padding: 2rem; }
+    .tag { 
+      display:inline-block; 
+      padding:.35rem .6rem; 
+      background:rgba(255,255,255,.15); 
+      border:1px solid rgba(255,255,255,.2); 
+      border-radius:999px; 
+      font-size:.9rem; 
+      letter-spacing:.3px; }
+    h1 { 
+      font-size: clamp(2rem, 4.3vw, 3.6rem); 
+      margin: .8rem 0 .2rem; 
+      letter-spacing: .3px; }
+    .lead { 
+      font-size: clamp(1rem, 1.8vw, 1.25rem); 
+      color: #e2e8f0; 
+      margin-bottom: 1.3rem; }
     .cta {
-      display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content:center;
+      display: inline-flex; 
+      gap: .8rem; 
+      flex-wrap: wrap; 
+      justify-content:center;
     }
-    .btn { display:inline-flex; align-items:center; gap:.5rem; border-radius: .9rem; padding:.75rem 1rem; border:1px solid rgba(255,255,255,.35); color:white; }
-    .btn.primary { background: var(--brand); border-color: transparent; box-shadow: 0 10px 20px rgba(108,92,231,.25); }
-    .btn:hover { filter: brightness(1.05); text-decoration: none; }
+    .btn { 
+      display:inline-flex; 
+      align-items:center; 
+      gap:.5rem; 
+      border-radius: .9rem; 
+      padding:.75rem 1rem; 
+      border:1px solid rgba(255,255,255,.35); 
+      color:white; }
+    .btn.primary { 
+      background: var(--brand); 
+      border-color: transparent; 
+      box-shadow: 0 10px 20px rgba(108,92,231,.25); }
+    .btn:hover { 
+      filter: brightness(1.05); 
+      text-decoration: none; }
 
     /* Parallax sections */
     .parallax {
-      min-height: 70svh; display: grid; place-items: center; text-align: center; color: white; position: relative;
+      min-height: 70svh; 
+      display: grid; 
+      place-items: center; 
+      text-align: center; 
+      color: white; 
+      position: relative;
       background: center/cover fixed no-repeat;
     }
     .parallax::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55)); }
@@ -85,9 +149,10 @@
 
     /* Cards */
     .grid {
-      display: grid; gap: 1.2rem; grid-template-columns: repeat(12, 1fr);
+      /* display: grid; gap: 1.2rem; grid-template-columns: repeat(12, 1fr); */
+      display: grid; gap: 1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%;
     }
-    .col-4 { grid-column: span 4; }
+    /* .col-4 { grid-column: span 4; } */
     .col-6 { grid-column: span 6; }
     .card {
       background: white; border: 1px solid #e5e7eb; border-radius: 1.25rem; padding: 1.25rem;
@@ -95,12 +160,186 @@
     }
     .card h3 { margin: .2rem 0 .5rem; font-size: 1.1rem; }
 
+    /* =========================================================
+      PROJECT GRID --PROJECT CARDS 10/5/2026
+    ========================================================= */
+    .project-grid {
+        display: grid;
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        width: 100%;
+    }
+    /* Tableau dashboard container */
+    .tableau-project {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        aspect-ratio: 16 / 10;
+        background: #f5f5f5;
+    }
+    /* Tableau preview */
+    .tableau-preview {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .tableau-preview iframe {
+        position: absolute;
+        width: 125%;
+        height: 125%;
+        left: -12.5%;
+        top: -12.5%;
+        border: 0;
+        pointer-events: none;
+
+        transition: transform 0.5s ease;
+    }
+    /* Dashboard link overlay */
+    .tableau-project .project-overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+        text-decoration: none;
+        color: white;
+
+        /* Only darken the bottom portion */
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.25),
+            transparent
+        );
+        opacity: 0.9;
+        transition:
+            opacity 0.3s ease,
+            padding 0.3s ease;
+    }
+    /* Text */
+    .tableau-project .project-overlay span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+    /* Arrow */
+    .tableau-project .project-overlay strong {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        font-size: 1rem;
+        font-weight: 400;
+        opacity: 0.8;
+        transition:
+            background 0.3s ease,
+            color 0.3s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+    /* Hover */
+    .tableau-project:hover .project-overlay {
+        opacity: 1;
+        padding-bottom: 1.25rem;
+    }
+    .tableau-project:hover .project-overlay span {
+        opacity: 1;
+    }
+    .tableau-project:hover .project-overlay strong {
+        opacity: 1;
+        background: white;
+        color: black;
+        transform: translate(3px, -2px);
+    }
+    /* Subtle dashboard zoom */
+    .tableau-project:hover .tableau-preview iframe {
+        transform: scale(1.02);
+    }
+    /* Mobile */
+
+    @media (max-width: 768px) {
+
+        .tableau-project {
+            aspect-ratio: 4 / 3;
+        }
+
+        .tableau-preview iframe {
+            width: 150%;
+            height: 150%;
+            left: -25%;
+            top: -25%;
+        }
+
+        .project-overlay {
+            opacity: 1;
+            padding: 1rem;
+        }
+    }
+
+    /* =========================================================
+      STAGGERED ANIMATIONS --PROJECT CARDS 10/5/2026
+    ========================================================= */
+
+    .project-card:nth-child(1) {
+        transition-delay: 0.05s;
+    }
+
+    .project-card:nth-child(2) {
+        transition-delay: 0.1s;
+    }
+
+    .project-card:nth-child(3) {
+        transition-delay: 0.15s;
+    }
+
+    /* -------------------------------------------------
+      DARK OVERLAY
+    -------------------------------------------------- */
+
+    /* .quartermaster-card-overlay {
+        position: absolute;
+
+        inset: 0;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.05) 25%,
+                rgba(0, 0, 0, 0.85) 100%
+            );
+
+        z-index: 1;
+    } */
+
     /* Skills pills */
-    .pills { display:flex; flex-wrap:wrap; gap:.5rem; }
-    .pill { padding:.4rem .65rem; border-radius:999px; background:#f1f5f9; border:1px solid #e2e8f0; font-size:.9rem; }
+    .pills { 
+      display:flex; 
+      flex-wrap:wrap; 
+      gap:.5rem; }
+    .pill { 
+      padding:.4rem .65rem; 
+      border-radius:999px; 
+      background:#f1f5f9; 
+      border:1px solid #e2e8f0; 
+      font-size:.9rem; }
 
     /* Footer */
-    footer { padding: 2.5rem 1rem; border-top: 1px solid #e5e7eb; color: #64748b; text-align:center; }
+    footer { 
+      padding: 2.5rem 1rem; 
+      border-top: 1px solid #e5e7eb; 
+      color: #64748b; text-align:center; }
 
     /* Forms */
     form { display:grid; gap: .9rem; }
@@ -128,7 +367,7 @@
     <nav class="nav" aria-label="Primary">
       <div class="brand">Yvonne Krasnov</div>
       <div class="menu">
-        <a href="#home">Home</a>
+        <a href="index.html">Home</a>
         <a href="#about">About</a>
         <!-- <a href="#blog">Blog</a> -->
          <a href="#projects">Projects</a>
@@ -155,8 +394,15 @@
     <div class="wrap grid">
       <div class="col-6">
         <h2>About Me</h2>
-        <p>I'm a business analyst focused on helping stakeholders make smarter decisions with data. I enjoy brainstorming with tech-driven teams and bringing people together to accomplish goals.</p>
-        <p>Apart from the spreadsheets and computer screens, I am living life through creativity, music, family, and adventure.</p>
+        <p>
+          My background sits at the intersection of healthcare,
+          pharmacy, analytics, and technology. I've worked in 
+          healthcare since 2017, starting as a pharmacy technician 
+          before transitioning into data analytics/data science.
+          Along the way, I found my passion turning data into insights that
+          solve problems, improve outcomes, and help people achieve their goals. </p>
+        <p>Apart from the spreadsheets and computer screens, I am living life 
+          through creativity, music, family, and adventure.</p>
       </div>
       <div class="col-6">
         <div class="card" aria-label="Quick facts">
@@ -167,13 +413,19 @@
             <li>💙 Driven by love for helping others thrive</li>
             <li>🎯 Interests: Data analysis, data engineering, UI engineering, data visualization</li>
           </ul>
+          <h3>What I value</h3>
+          <ul>
+            <li>🔍 Clarity: Understanding the data presented and where it comes from not only helps solves problems, but it also builds trust.</li>
+            <li>💡 Curiosity: Asking open-ended questions and exploring the possibilities brings more depth into my work as well as my character.</li>
+            <li>🤝 Connection: Creating meaningful connections is my primary motivation. Finding common ground between varying perspectives makes my work and life more rewarding.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Parallax Panel 2 -->
-  <section class="parallax" style="background-image: var(--bg-2);">
+  <section class="parallax" style="background-image: url(imag/japanesegarden.jpg);">
     <div class="content">
       <h2>Personal Projects</h2>
       <p class="lead">I'm always thinking of ways to make others' lives easier. As a result, many of my personal projects are created with practical applications in mind. Of course, my creative side allows me to balance practicality with imaginative exploration.</p>
@@ -185,56 +437,190 @@
     <div class="wrap">
       <h2 id="projects-title">Selected Projects</h2>
       <div class="grid">
-        <article class="card col-4">
-          <h3>Project One</h3>
-          <p>PM2.5 Levels of Six US Cities</p></p>
-          <a href="tableau_page_one.html">View project →</a>
-        </article>
-        <article class="card col-4">
-          <h3>Project Two</h3>
-          <p>World Development Indicators</p>
-          <a href="tableau_page_two.html">View project →</a>
-        </article>
-        <article class="card col-4">
-          <h3>Project Three</h3>
-          <p>Global Pharma (In The Works)</p>
-          <a href="tableau_page_three.html">View project →</a>
-        </article>
-      </div>
-    </div>
-  </section> -->
+      <!----This section was added 10/5/2026-->
+      <!-- PROJECT 1 -->
+                <article
+                    class="project-card project-large reveal"
+                >
+                        <div class="tableau-project">
+                            <div class="tableau-preview">
+                                    <iframe
+                                        src="https://public.tableau.com/views/WorldDevelopmentIndicatorsWDI_17581445904810/WorldDevelopmentIndicators?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"
+                                        title="World Development Indicators"
+                                        loading="lazy"
+                                        frameborder="0"
+                                        allowfullscreen>
+                                    </iframe>
+                            </div>
+                        <a
+                            href="https://public.tableau.com/views/WorldDevelopmentIndicatorsWDI_17581445904810/WorldDevelopmentIndicators?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-overlay"
+                        >
+                            <span>
+                                Explore dashboard
+                            </span>
+                            <strong>
+                                ↗
+                            </strong>
+                        </a>
+                    </div>
+                        <div class="project-info">
+                            <div>
+                                <span class="project-category">
+                                    Global Development Data - 
+                                        <a
+                                            href="https://datacatalog.worldbank.org/search/dataset/0037712/world-development-indicators"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            World Bank
+                                        </a>
+                                </span>
+                                    <h3>
+                                        World Development Indicators
+                                    </h3>
+                            </div>
+
+                            <span class="project-year">
+                                2026
+                            </span>
+                    </div>
+                </article>
+                <!-- PROJECT 2 -->
+                <article
+                    class="project-card reveal"
+                >
+                        <div class="tableau-project">
+                            <div class="tableau-preview">
+                                    <iframe
+                                        src="https://public.tableau.com/views/PM2_5LevelsofSixU_S_Cities/PM2_5LevelsofSixU_S_Cities?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"
+                                        title="PM2.5 Levels of Six U.S. Cities"
+                                        loading="lazy"
+                                        frameborder="0"
+                                        allowfullscreen>
+                                    </iframe>
+                            </div>
+                        <a
+                            href="https://public.tableau.com/views/PM2_5LevelsofSixU_S_Cities/PM2_5LevelsofSixU_S_Cities?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-overlay"
+                        >
+                            <span>
+                                Explore dashboard
+                            </span>
+                            <strong>
+                                ↗
+                            </strong>
+                        </a>
+                    </div>
+                        <div class="project-info">
+                            <div>
+                                <span class="project-category">
+                                    Environmental Data - 
+                                        <a
+                                            href="https://www.epa.gov/outdoor-air-quality-data"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            EPA
+                                        </a>
+                                </span>
+                                    <h3>
+                                        World Development Indicators
+                                    </h3>
+                            </div>
+                            <span class="project-year">
+                                2026
+                            </span>
+                    </div>
+                </article>
+                 <!-- PROJECT 3 -->
+                <article
+                    class="project-card reveal"
+                >
+                        <div class="tableau-project">
+                            <div class="tableau-preview">
+                                    <iframe
+                                        src="https://public.tableau.com/shared/N298Z537W?:display_count=n&:origin=viz_share_link:showVizHome=no&:embed=true"
+                                        title="Global Pharma"
+                                        loading="lazy"
+                                        frameborder="0"
+                                        allowfullscreen>
+                                    </iframe>
+                            </div>
+
+                        <a
+                            href="https://public.tableau.com/shared/N298Z537W?:display_count=n&:origin=viz_share_link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-overlay"
+                        >
+                            <span>
+                                Explore dashboard
+                            </span>
+                            <strong>
+                                ↗
+                            </strong>
+                        </a>
+                    </div>
+
+                        <div class="project-info">
+                            <div>
+                                <span class="project-category">
+                                    Healthcare & Pharmaceuticals Data - 
+                                        <a
+                                            href="https://www.fda.gov/drugs/development-approval-process-drugs/drug-approvals-and-databases"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            U.S. FDA
+                                        </a>
+                                </span>
+                                    <h3>
+                                        World Development Indicators
+                                    </h3>
+                            </div>
+
+                            <span class="project-year">
+                                2026
+                            </span>
+                    </div>
+                </article>
+            </div> 
+        </section>
 
   <!-- Parallax Panel 3 -->
-  <section class="parallax" style="background-image: url(imag/japanesegarden.jpg);">
+  <section class="parallax" style="background-image: url(imag/dnd.jpg);">
     <div class="content">
-      <h2>Personal Blog</h2>
-      <p class="lead">Sharing my professional journey alongisde the moments that shape my life.</p>
+      <h2>Games</h2>
+      <p class="lead">DND, Pathfinder 2e, Divinity: Original Sin 2, Baldur's Gate - Fantasy RPG</p>
     </div>
   </section> -->
 
-  <!-- Blog -->
-  <!-- <section id="blog" class="content-block" aria-labelledby="blog-title">
+  <!-- Games -->
+  <section id="games" class="content-block" aria-labelledby="games-title">
     <div class="wrap">
-      <h2 id="blog-title">Adventures</h2>
+      <h2 id="games-title">Pathfinder 2e</h2>
       <div class="grid">
-        <article class="card col-4">
-          <h3>Cabo San Lucas 2021</h3>
-          <p>Christmas getaway in Cabo San Lucas.</p>
-          <a href="cabos_blog.html">Read story →</a>
-        </article>
-        <article class="card col-4">
-          <h3>Las Vegas 2022</h3>
-          <p>Bridal Shower in Las Vegas, Nevada</p>
-          <a href="las_vegas_blog.html">Read story →</a>
-        </article>
-        <article class="card col-4">
-          <h3>Cabin Christmas 2023</h3>
-          <p>Cozy cabin vibes Christmas in South Lake Tahoe</p>
-          <a href="cabin_christmas.html">Read story →</a>
-        </article>
-      </div>
-    </div> -->
-  <!-- </section> --> 
+        <a
+          href="quartermaster.html"
+          class="games-card quartermaster-card reveal"
+          aria-label="View Pathfinder 2e character: The Quartermaster"
+        >
+        <h3>The Quartermaster</h3>
+        <p>Pathfinder 2e character profile.</p>
+        </a>
+          <!-- <img
+              src="imag/Zhen Zi Mo.png"
+              alt="The Quartermaster, a Hobgoblin Magus"
+              class="quartermaster-card-image"
+          > -->
+          <div class="quartermaster-card-overlay"></div>
+    </div> 
+  </section> 
 
   <!-- Parallax Panel 4 -->
   <section class="parallax" style="background-image: url(imag/meditate.jpg);">
@@ -259,7 +645,7 @@
           <span class="pill">Python</span>
           <span class="pill">JavaScript</span>
           <span class="pill">Snowflake</span>
-          <span class="pill">Oracle SQL</span>
+          <span class="pill">Oracle SQL Developer</span>
           <span class="pill">Microsoft SQL Server</span>
           <span class="pill">Teradata</span>
           <span class="pill">HTML</span>
@@ -286,7 +672,7 @@
   </section>
 
   <!-- Parallax Panel 4 -->
-  <section class="parallax" style="background-image: url(imag/computer.jpg);">
+  <section class="parallax" style="background-image: url(imag/setup.jpg);">
     <div class="content">
       <h2>Want to talk? Send me a message</h2>
       <p class="lead">Feel free to contact me to learn more about my projects or discuss ideas you want to bring to life.</p>
